@@ -5,7 +5,7 @@ import TextField from '../TextField';
 import './Form.css'
 
 function Form(props) {
-  const teams = [
+  const crews = [
     'Programação',
     'Front-End',
     'Data Science',
@@ -18,11 +18,16 @@ function Form(props) {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
   const [image, setImage] = useState('');
-  const [team, setTeam] = useState('');
+  const [crew, setCrew] = useState('');
 
   const saveForm = (event) => {
     event.preventDefault();
-    console.log('Form submetido', name, role, image, team);
+    props.onSave({
+      name,
+      role,
+      image,
+      crew,
+    });
   }
 
   return (
@@ -52,9 +57,9 @@ function Form(props) {
         <DropdownList
           required={true}
           label="Times"
-          items={teams}
-          value={team}
-          onChange={(value) => setTeam(value)}
+          items={crews}
+          value={crew}
+          onChange={(value) => setCrew(value)}
         />
         <Button>Criar Card</Button>
       </form>
