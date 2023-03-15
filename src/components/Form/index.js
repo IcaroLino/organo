@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
 import TextField from '../TextField';
@@ -14,19 +15,47 @@ function Form(props) {
     'Inovação e Gestão',
   ];
 
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+  const [image, setImage] = useState('');
+  const [team, setTeam] = useState('');
+
   const saveForm = (event) => {
     event.preventDefault();
-    console.log('Form submetido');
+    console.log('Form submetido', name, role, image, team);
   }
 
   return (
     <section className='form'>
       <form onSubmit={saveForm}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <TextField required={true} label="Nome" placeholder="Digite o seu nome" />
-        <TextField required={true} label="Cargo" placeholder="Digite o seu cargo" />
-        <TextField label="Imagem" placeholder="Digite o endereço da imagem" />
-        <DropdownList required={true} label="Times" items={teams} />
+        <TextField
+          required={true}
+          label="Nome"
+          placeholder="Digite o seu nome"
+          value={name}
+          onChange={(value) => setName(value)}
+        />
+        <TextField
+          required={true}
+          label="Cargo"
+          placeholder="Digite o seu cargo"
+          value={role}
+          onChange={(value) => setRole(value)}
+        />
+        <TextField
+          label="Imagem"
+          placeholder="Digite o endereço da imagem"
+          value={image}
+          onChange={(value) => setImage(value)}
+        />
+        <DropdownList
+          required={true}
+          label="Times"
+          items={teams}
+          value={team}
+          onChange={(value) => setTeam(value)}
+        />
         <Button>Criar Card</Button>
       </form>
     </section>
