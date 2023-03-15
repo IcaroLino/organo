@@ -4,7 +4,7 @@ function DropdownList(props) {
   return (
     <div className='dropdown-list'>
       <label>{props.label}</label>
-      <select>
+      <select required={props.required}>
         {props.items.map((item) => <option key={item}>{item}</option>)}
       </select>
     </div>
