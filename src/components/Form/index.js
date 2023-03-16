@@ -19,6 +19,10 @@ function Form(props) {
       image,
       squad,
     });
+    setName('');
+    setRole('');
+    setImage('');
+    setSquad('');
   }
 
   return (
