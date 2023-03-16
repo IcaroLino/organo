@@ -46,7 +46,6 @@ function App() {
   const [members, setMembers] = useState([]);
 
   const addMember = (member) => {
-    console.log(members);
     setMembers([...members, member]);
   }
 
@@ -54,7 +53,14 @@ function App() {
     <div className="App">
       <Banner />
       <Form squads={squads.map((squad) => squad.name)} onSave={(member) => addMember(member)}/>
-      {squads.map((squad) => <Squad key={squad.name} name={squad.name} primaryColor={squad.primaryColor} secondaryColor={squad.secondaryColor} />)}
+      {squads.map((squad) => <Squad 
+          key={squad.name}
+          name={squad.name}
+          primaryColor={squad.primaryColor}
+          secondaryColor={squad.secondaryColor}
+          members={members.filter((member) => member.squad === squad.name)}
+        />
+      )}
     </div>
   );
 }

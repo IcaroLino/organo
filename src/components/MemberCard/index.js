@@ -4,11 +4,11 @@ function MemberCard(props) {
   return (
     <div className='member-card'>
       <div className='header'>
-        <img src='https://github.com/icarolino.png' alt='Icaro Lino' />
+        <img src={props.image} alt={props.name} />
       </div>
       <div className='footer'>
-        <h4>Icaro Lino</h4>
-        <h5>Dev</h5>
+        <h4>{props.name}</h4>
+        <h5>{props.role}</h5>
       </div>
     </div>
   );  
