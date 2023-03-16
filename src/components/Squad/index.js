@@ -6,7 +6,7 @@ function Squad(props) {
     (props.members.length > 0) && <section className='squad' style={{ backgroundColor: props.secondaryColor }}>
       <h3 style={{ borderColor: props.primaryColor }}>{props.name}</h3>
       <div className='members'>
-        {props.members.map((member) => <MemberCard key={member.name} name={member.name} role={member.role} image={member.image} />)}
+        {props.members.map((member) => <MemberCard key={member.name} headerColor={props.primaryColor} name={member.name} role={member.role} image={member.image} />)}
       </div>
     </section>
   );  
