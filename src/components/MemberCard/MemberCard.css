@@ -19,6 +19,7 @@
   border-radius: 0px 0px 10px 10px;
   padding-top: 90px;
   padding-bottom: 40px;
+  flex-direction: column;
 }
 
 .member-card .footer h4 {
