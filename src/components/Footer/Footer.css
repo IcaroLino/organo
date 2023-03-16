@@ -1,0 +1,25 @@
+.footer {  
+  background: #6278F7;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #FFF;
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin-right: 32px;
+}
+
+.footer ul li:last-child {
+  margin-right: 0;
+}
+
+.footer p {
+  font-size: 18px;
+  font-weight: 600;
+}

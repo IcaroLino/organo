@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Squad from './components/Squad';
 import Form from './components/Form';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
           members={members.filter((member) => member.squad === squad.name)}
         />
       )}
+      <Footer />
     </div>
   );
 }
