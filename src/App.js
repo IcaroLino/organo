@@ -48,7 +48,7 @@ function App() {
   const [members, setMembers] = useState([]);
 
   function addMember(member) {
-    setMembers([...members, member]);
+    setMembers([...members, {id: uuidv4(), ...member}]);
   }
 
   function removeMember(id) {
@@ -63,7 +63,7 @@ function App() {
   }
 
   function addSquad(squad) {
-    setSquads([...squads, squad]);
+    setSquads([...squads, { id: uuidv4(), ...squad }]);
   }
 
   return (

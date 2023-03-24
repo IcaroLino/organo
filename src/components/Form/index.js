@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
 import Field from '../Field';
@@ -17,7 +16,6 @@ function Form(props) {
   function saveMember(event) {
     event.preventDefault();
     props.onSaveMember({
-      id: uuidv4(),
       name,
       role,
       image,
@@ -32,7 +30,6 @@ function Form(props) {
   function saveSquad(event) {
     event.preventDefault();
     props.onSaveSquad({
-      id: uuidv4(),
       name: squadName,
       color: squadColor,
     });
