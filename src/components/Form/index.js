@@ -12,11 +12,11 @@ function Form(props) {
   const [image, setImage] = useState('');
   const [squad, setSquad] = useState('');
   const [squadName, setSquadName] = useState('');
-  const [squadColor, setSquadColor] = useState('');
+  const [squadColor, setSquadColor] = useState('#D9F7E9');
 
-  const saveForm = (event) => {
+  function saveMember(event) {
     event.preventDefault();
-    props.onSave({
+    props.onSaveMember({
       id: uuidv4(),
       name,
       role,
@@ -29,9 +29,20 @@ function Form(props) {
     setSquad('');
   }
 
+  function saveSquad(event) {
+    event.preventDefault();
+    props.onSaveSquad({
+      id: uuidv4(),
+      name: squadName,
+      color: squadColor,
+    });
+    setSquadName('');
+    setSquadColor('#D9F7E9');
+  }
+
   return (
     <section className='form'>
-      <form onSubmit={saveForm}>
+      <form onSubmit={saveMember}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
         <Field
           required={true}
@@ -62,7 +73,7 @@ function Form(props) {
         />
         <Button>Criar Card</Button>
       </form>
-      <form onSubmit={saveForm}>
+      <form onSubmit={saveSquad}>
         <h2>Preencha os dados para criar um novo time</h2>
         <Field
           required={true}

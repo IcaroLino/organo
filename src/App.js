@@ -62,13 +62,21 @@ function App() {
     }));
   }
 
+  function addSquad(squad) {
+    setSquads([...squads, squad]);
+  }
+
   return (
     <div className="App">
       <Banner />
-      <Form squads={squads.map((squad) => squad.name)} onSave={(member) => addMember(member)}/>
+      <Form
+        squads={squads.map((squad) => squad.name)}
+        onSaveMember={(member) => addMember(member)}
+        onSaveSquad={(squad) => addSquad(squad)}
+      />
       {squads.map((squad) => 
         <Squad 
-          key={squad.name}
+          key={squad.id}
           squad={squad}
           changeColor={changeColor}
           members={members.filter((member) => member.squad === squad.name)}
