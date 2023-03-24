@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
 import TextField from '../TextField';
@@ -14,6 +15,7 @@ function Form(props) {
   const saveForm = (event) => {
     event.preventDefault();
     props.onSave({
+      id: uuidv4(),
       name,
       role,
       image,
