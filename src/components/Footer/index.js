@@ -2,7 +2,7 @@ import './Footer.css'
 
 function Footer(props) {
   return (
-    <footer className='footer' style={{ backgroundImage: "url(/images/bg-footer.png)" }}>
+    <footer className='footer' style={{ backgroundImage: "url(/images/bg.png)" }}>
       <section className='socials'>
         <ul>
           <li>
