@@ -8,7 +8,7 @@ function Squad(props) {
       <input type='color' className='input-color' value={props.squad.color} onChange={(event) => props.changeColor(event.target.value, props.squad.id)} />
       <h3 style={{ borderColor: props.squad.color }}>{props.squad.name}</h3>
       <div className='members'>
-        {props.members.map((member) => <MemberCard key={member.name} headerColor={props.squad.color} member={member} remove={props.remove} />)}
+        {props.members.map((member) => <MemberCard key={member.id} headerColor={props.squad.color} member={member} remove={props.remove} />)}
       </div>
     </section>
   );  
