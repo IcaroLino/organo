@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
-import TextField from '../TextField';
+import Field from '../Field';
 import './Form.css'
 
 function Form(props) {
@@ -10,6 +10,8 @@ function Form(props) {
   const [role, setRole] = useState('');
   const [image, setImage] = useState('');
   const [squad, setSquad] = useState('');
+  const [squadName, setSquadName] = useState('');
+  const [squadColor, setSquadColor] = useState('');
 
   const saveForm = (event) => {
     event.preventDefault();
@@ -29,21 +31,21 @@ function Form(props) {
     <section className='form'>
       <form onSubmit={saveForm}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
-        <TextField
+        <Field
           required={true}
           label="Nome"
           placeholder="Digite o seu nome"
           value={name}
           onChange={(value) => setName(value)}
         />
-        <TextField
+        <Field
           required={true}
           label="Cargo"
           placeholder="Digite o seu cargo"
           value={role}
           onChange={(value) => setRole(value)}
         />
-        <TextField
+        <Field
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           value={image}
@@ -57,6 +59,25 @@ function Form(props) {
           onChange={(value) => setSquad(value)}
         />
         <Button>Criar Card</Button>
+      </form>
+      <form onSubmit={saveForm}>
+        <h2>Preencha os dados para criar um novo time</h2>
+        <Field
+          required={true}
+          label="Nome"
+          placeholder="Digite o nome do time"
+          value={squadName}
+          onChange={(value) => setSquadName(value)}
+        />
+        <Field
+          required={true}
+          label="Cor"
+          type='color'
+          placeholder="Digite sua cor"
+          value={squadColor}
+          onChange={(value) => setSquadColor(value)}
+        />        
+        <Button>Criar Time</Button>
       </form>
     </section>
   );
