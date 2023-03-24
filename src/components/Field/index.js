@@ -1,10 +1,10 @@
 import './Field.css'
 
-function Field(props) {
+function Field({ label, value, onChange, placeholder, required = 'false' }) {
   return (
     <div className="field">
-      <label>{props.label}</label>
-      <input value={props.value} onChange={(event) => props.onChange(event.target.value)} required={props.required} placeholder={props.placeholder} />
+      <label>{label}</label>
+      <input value={value} onChange={(event) => onChange(event.target.value)} required={required} placeholder={placeholder} />
     </div>
   );  
 }
