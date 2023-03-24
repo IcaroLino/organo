@@ -1,6 +1,6 @@
 import './Field.css'
 
-function Field({ label, value, onChange, placeholder, required = 'false', type = 'text' }) {
+function Field({ label, value, onChange, placeholder, required = false, type = 'text' }) {
   return (
     <div className={`field field-${type}`}>
       <label>{label}</label>
