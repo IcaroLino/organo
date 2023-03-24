@@ -1,10 +1,16 @@
 import './Field.css'
 
-function Field({ label, value, onChange, placeholder, required = 'false' }) {
+function Field({ label, value, onChange, placeholder, required = 'false', type = 'text' }) {
   return (
-    <div className="field">
+    <div className={`field field-${type}`}>
       <label>{label}</label>
-      <input value={value} onChange={(event) => onChange(event.target.value)} required={required} placeholder={placeholder} />
+      <input 
+        type={type} 
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        required={required}
+        placeholder={placeholder} 
+      />
     </div>
   );  
 }
