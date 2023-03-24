@@ -1,12 +1,12 @@
 import './DropdownList.css'
 
-function DropdownList(props) {
+function DropdownList({ label, value, items, onChange, required = false }) {
   return (
     <div className='dropdown-list'>
-      <label>{props.label}</label>
-      <select onChange={(event) => props.onChange(event.target.value)} required={props.required} value={props.value}>
+      <label>{label}</label>
+      <select onChange={(event) => onChange(event.target.value)} required={required} value={value}>
         <option value=""></option>
-        {props.items.map((item) => <option key={item}>{item}</option>)}
+        {items.map((item) => <option key={item}>{item}</option>)}
       </select>
     </div>
   );

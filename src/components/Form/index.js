@@ -4,7 +4,7 @@ import DropdownList from '../DropdownList';
 import Field from '../Field';
 import './Form.css'
 
-function Form(props) {
+function Form({ onSaveMember, onSaveSquad, squads }) {
 
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
@@ -15,7 +15,7 @@ function Form(props) {
 
   function saveMember(event) {
     event.preventDefault();
-    props.onSaveMember({
+    onSaveMember({
       name,
       role,
       image,
@@ -29,7 +29,7 @@ function Form(props) {
 
   function saveSquad(event) {
     event.preventDefault();
-    props.onSaveSquad({
+    onSaveSquad({
       name: squadName,
       color: squadColor,
     });
@@ -64,7 +64,7 @@ function Form(props) {
         <DropdownList
           required={true}
           label="Times"
-          items={props.squads}
+          items={squads}
           value={squad}
           onChange={(value) => setSquad(value)}
         />
