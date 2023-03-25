@@ -48,7 +48,8 @@ function App() {
   const [members, setMembers] = useState([]);
 
   function addMember(member) {
-    setMembers([...members, {id: uuidv4(), ...member}]);
+    setMembers([...members, {id: uuidv4(), favorite: false, ...member}]);
+    console.log(members);
   }
 
   function removeMember(id) {
@@ -66,6 +67,13 @@ function App() {
     setSquads([...squads, { id: uuidv4(), ...squad }]);
   }
 
+  function favoriteMember(id) {
+    setMembers(members.map((member) => {
+      if (member.id === id) member.favorite = !member.favorite;
+      return member;
+    }));
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -81,6 +89,7 @@ function App() {
           changeColor={changeColor}
           members={members.filter((member) => member.squad === squad.name)}
           remove={removeMember}
+          favorite={favoriteMember}
         />
       )}
       <Footer />

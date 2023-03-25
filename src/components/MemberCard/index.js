@@ -1,7 +1,19 @@
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import './MemberCard.css'
 
-function MemberCard({ member, headerColor, remove }) {
+function MemberCard({ member, headerColor, remove, favorite }) {
+
+  function toggleFavorite() {
+    favorite(member.id);
+  }
+  
+  const propsFavorite = {
+    size: 25,
+    color: headerColor,    
+    onClick: toggleFavorite
+  }
+  
+
   return (
     <div className='member-card'>
       <AiFillCloseCircle size={25} className='remove' onClick={() => remove(member.id)} />
@@ -11,6 +23,12 @@ function MemberCard({ member, headerColor, remove }) {
       <div className='footer'>
         <h4>{member.name}</h4>
         <h5>{member.role}</h5>
+        <div className='favorite'>
+          {member.favorite
+            ? <AiFillHeart {...propsFavorite} />
+            : <AiOutlineHeart {...propsFavorite} />
+          }
+        </div>
       </div>
     </div>
   );  
