@@ -49,7 +49,6 @@ function App() {
 
   function addMember(member) {
     setMembers([...members, {id: uuidv4(), favorite: false, ...member}]);
-    console.log(members);
   }
 
   function removeMember(id) {
