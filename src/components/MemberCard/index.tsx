@@ -1,7 +1,16 @@
-import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
-import './MemberCard.css'
+import React from 'react';
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import './MemberCard.css';
+import IMember from '../../interfaces/IMember';
 
-function MemberCard({ member, headerColor, remove, favorite }) {
+interface MemberCardProps {
+  member: IMember, 
+  headerColor: string, 
+  remove: (id: string) => void, 
+  favorite: (id: string) => void,
+}
+
+function MemberCard({ member, headerColor, remove, favorite } : MemberCardProps) {
 
   function toggleFavorite() {
     favorite(member.id);

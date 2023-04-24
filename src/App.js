@@ -48,7 +48,7 @@ function App() {
   const [members, setMembers] = useState([]);
 
   function addMember(member) {
-    setMembers([...members, {id: uuidv4(), favorite: false, ...member}]);
+    setMembers([...members, member]);
   }
 
   function removeMember(id) {
@@ -63,7 +63,7 @@ function App() {
   }
 
   function addSquad(squad) {
-    setSquads([...squads, { id: uuidv4(), ...squad }]);
+    setSquads([...squads, squad]);
   }
 
   function favoriteMember(id) {
@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner src="/images/banner.png" alt="O banner principal da página do Organo" />
       <Form
         squads={squads.map((squad) => squad.name)}
         onSaveMember={(member) => addMember(member)}

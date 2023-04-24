@@ -1,6 +1,16 @@
-import './Field.css'
+import React from 'react';
+import './Field.css';
 
-function Field({ label, value, onChange, placeholder, required = false, type = 'text' }) {
+interface FieldProps {
+  label: string,
+  value: string,
+  onChange: (value: string) => void,
+  placeholder: string,
+  required?: boolean,
+  type?: string,
+}
+
+function Field({ label, value, onChange, placeholder, required = false, type = 'text' } : FieldProps) {
   return (
     <div className={`field field-${type}`}>
       <label>{label}</label>

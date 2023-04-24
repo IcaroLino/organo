@@ -1,6 +1,15 @@
-import './DropdownList.css'
+import React from 'react';
+import './DropdownList.css';
 
-function DropdownList({ label, value, items, onChange, required = false }) {
+interface DropdownListProps {
+  label: string,
+  value: string,
+  items: string[],
+  onChange: (value: string) => void,
+  required: boolean,
+}
+
+function DropdownList({ label, value, items, onChange, required = false } : DropdownListProps) {
   return (
     <div className='dropdown-list'>
       <label>{label}</label>

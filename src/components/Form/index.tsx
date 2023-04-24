@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../Button';
 import DropdownList from '../DropdownList';
 import Field from '../Field';
-import './Form.css'
+import './Form.css';
+import IMember from '../../interfaces/IMember';
+import ISquad from '../../interfaces/ISquad';
+import { v4 as uuidv4 } from 'uuid';
 
-function Form({ onSaveMember, onSaveSquad, squads }) {
+interface FormProps {
+  onSaveMember: (member: IMember) => void ,
+  onSaveSquad: (squad: ISquad) => void,
+  squads: string[],
+}
+
+function Form({ onSaveMember, onSaveSquad, squads } : FormProps) {
 
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
@@ -13,9 +22,11 @@ function Form({ onSaveMember, onSaveSquad, squads }) {
   const [squadName, setSquadName] = useState('');
   const [squadColor, setSquadColor] = useState('#D9F7E9');
 
-  function saveMember(event) {
+  function saveMember(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSaveMember({
+      id: uuidv4(),
+      favorite: false,
       name,
       role,
       image,
@@ -27,9 +38,10 @@ function Form({ onSaveMember, onSaveSquad, squads }) {
     setSquad('');
   }
 
-  function saveSquad(event) {
+  function saveSquad(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSaveSquad({
+      id: uuidv4(),
       name: squadName,
       color: squadColor,
     });
