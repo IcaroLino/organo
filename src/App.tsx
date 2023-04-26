@@ -4,6 +4,8 @@ import Squad from './components/Squad';
 import Form from './components/Form';
 import Footer from './components/Footer';
 import { v4 as uuidv4 } from 'uuid';
+import IMember from './interfaces/IMember';
+import ISquad from './interfaces/ISquad';
 
 function App() {
 
@@ -45,28 +47,28 @@ function App() {
     },
   ]);
 
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState<IMember[]>([]);
 
-  function addMember(member) {
+  function addMember(member: IMember) {
     setMembers([...members, member]);
   }
 
-  function removeMember(id) {
+  function removeMember(id: string) {
     setMembers(members.filter((member) => member.id !== id));
   }
 
-  function changeColor(color, id) {
+  function changeColor(color: string, id: string) {
     setSquads(squads.map((squad) => {
       if (squad.id === id) squad.color = color;
       return squad;
     }));
   }
 
-  function addSquad(squad) {
+  function addSquad(squad: ISquad) {
     setSquads([...squads, squad]);
   }
 
-  function favoriteMember(id) {
+  function favoriteMember(id: string) {
     setMembers(members.map((member) => {
       if (member.id === id) member.favorite = !member.favorite;
       return member;
